@@ -1,0 +1,121 @@
+CreatePolygonCube;
+polyCube -w 1 -h 1 -d 1 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1;
+// Result: pCube1 polyCube1 //
+select -addFirst polyCube1 ;
+setAttr "polyCube1.width" 5;
+setAttr "polyCube1.height" 5;
+setAttr "polyCube1.depth" 5;
+setAttr "pCube1.translateY" 2.5;
+setAttr "polyCube1.subdivisionsWidth" 5;
+setAttr "polyCube1.subdivisionsHeight" 5;
+setAttr "polyCube1.subdivisionsDepth" 5;
+select -r pCube1 ;
+duplicate -rr;
+// Result: pCube2 //
+setAttr "pCube2.translateX" 10;
+select -r pCube2 ;
+select -r pCube1 ;
+select -r pCube2 ;
+select -r pCube2 ;
+duplicate -rr;
+// Result: pCube3 //
+setAttr "pCube3.translateX" 20;     // 여기까지 큐브 생성
+scale -r 1 1.505427 1 ;
+setAttr "pCube3.scaleY" 1.500;
+setAttr "pCube3.translateY" 3;
+setAttr "pCube3.translateY" 3.5;
+select -r pCube3.vtx[6:29] pCube3.vtx[66:89] pCube3.vtx[120:151] ;
+scale -r -p 20cm 3.5cm 0cm 1 1 0.478631 ;
+scale -r -p 20cm 3.5cm 0cm 0.781041 1 1 ;
+select -r pCube2 ;
+scale -r 1 0.714578 1 ;
+scale -r 1 0.978044 1 ;
+setAttr "pCube2.scaleY" 0.7;
+scale -r 1.502766 1 1 ;
+setAttr "pCube2.scaleX" 1.50;
+move -r 0 -0.490327 0 ;
+move -r 0 -0.295184 0 ;
+select -r pCube2.vtx[6:29] pCube2.vtx[66:100] pCube2.vtx[102:103] pCube2.vtx[120:151] ;
+move -r 0 0 2.807714 ;
+move -r -0.103017 0 0 ;
+// Undo: move -r -0.103017 0 0  //
+move -r 0 0 -0.69507 ;
+move -r 0.0454359 0.151269 -0.0315912 ;
+// Undo: move -r 0.0454359 0.151269 -0.0315912  //
+scale -r -p 10cm 1.364489cm 2.112643cm 1.176588 1 1 ;
+scale -r -p 10cm 1.364489cm 2.112643cm 1 1 1.062098 ;     // 여기까지 큐브 구부리
+select -r pCube3 pCube2 ;
+select -tgl pCube1 ;
+blendShape -automatic;
+// Result: blendShape1 //                      // blendShape 만들기
+select -addFirst blendShape1 ;
+currentTime 2 ;
+currentTime 1 ;
+setKeyframe { "blendShape1.w[0]" };
+// Result: 1 //
+setKeyframe { "blendShape1.w[1]" };
+// Result: 1 //
+currentTime 40 ;
+select -r pCube1 ;
+move -r 0 3.850315 0 ;
+setAttr "blendShape1.pCube3" 1;
+setKeyframe { "blendShape1.w[0]" };
+// Result: 1 //
+currentTime 40 ;
+
+currentTime 1 ;
+move -r 0 -3.478114 0 ;
+move -r 0 -0.272727 0 ;
+move -r 0 -0.0670707 0 ;
+setKeyframe -breakdown 0 |pCube1.translateY;
+// Result: 1 //
+currentTime 1 ;
+currentTime 1 ;
+move -r 0 3.824346 0 ;
+move -r 0 -0.274392 0 ;
+currentTime 40 ;
+move -r 0 4.911578 0 ;
+currentTime 1 ;
+currentTime 41 ;
+currentTime 40 ;
+move -r 0 4.918909 0 ;
+setKeyframe -breakdown 0 |pCube1.translateY;
+// Result: 1 //
+currentTime 40 ;
+currentTime 80 ;
+move -r 0 -4.702698 0 ;
+move -r 0 -0.201212 0 ;
+setKeyframe -breakdown 0 |pCube1.translateY;
+// Result: 1 //
+setAttr "blendShape1.pCube3" 0;
+setKeyframe -breakdown 0 |pCube1.translateY;
+// Result: 1 //
+setAttr "blendShape1.pCube2" 0;
+currentTime 39 ;
+currentTime 80 ;
+setAttr "blendShape1.pCube3" 0;
+setKeyframe -breakdown 0 |pCube1.translateY;
+// Result: 1 //
+move -r -0.221079 0 0 ;
+// Undo: move -r -0.221079 0 0  //
+setAttr "blendShape1.pCube2" 1;
+currentTime 79 ;
+currentTime 80 ;
+setAttr "blendShape1.pCube3" 0;
+setKeyframe -breakdown 0 |pCube1.translateX;
+// Result: 1 //
+setAttr "blendShape1.pCube2" 1;
+setKeyframe { "blendShape1.w[1]" };
+// Result: 1 //
+setKeyframe { "blendShape1.w[0]" };
+// Result: 1 //
+// Press the ESC key to stop playback. //
+currentTime 168 ;
+// Press the ESC key to stop playback. //
+currentTime 51 ;
+// Press the ESC key to stop playback. //
+currentTime 17 ;
+// Press the ESC key to stop playback. //
+currentTime 26 ;
+// Press the ESC key to stop playback. //
+currentTime 37 ;
