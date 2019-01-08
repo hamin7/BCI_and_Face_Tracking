@@ -5,13 +5,13 @@ import maya.mel as mm
 tempT = 0
 count = 0
 #defineKeyFrame
-def keyAnim1(pObjName, pTargetAttr, pVal):
+def keyAnim1(pObjName, pTargetAttr, pVal):                           # keyAni는 얼굴의 위쪽부분.
     global count
     global tempT
     if count==0:
         pCurTime = mc.currentTime(query=True)
         temp = pCurTime
-        mc.setKeyframe(pObjName, time=temp, attribute=pTargetAttr, value=pVal)
+        mc.setKeyframe(pObjName, time=temp, attribute=pTargetAttr, value=pVal)      # 현재 프레임에서 이사람의 얼굴을 Keyframe에 넣어놓는것.
         tempT=temp
         count+=1
     else:
@@ -19,7 +19,7 @@ def keyAnim1(pObjName, pTargetAttr, pVal):
         count+=1
         if count==8: count=0
     
-def keyAnim2(pObjName, pTargetAttr, pVal):
+def keyAnim2(pObjName, pTargetAttr, pVal):                           # keyAni2는 얼굴의 아래쪽 부분.
     global count
     global tempT
     if count==0:
@@ -34,18 +34,18 @@ def keyAnim2(pObjName, pTargetAttr, pVal):
         if count==12: count=0
     
 #defineVar
-ebList = ['Ctl_Eyebrows','Ctl_Eyebrows_L','Ctl_Eyebrows_R',
-'Ctl_Eye_L','Ctl_Eye_R']
+ebList = ['Ctl_Eyebrows','Ctl_Eyebrows_L','Ctl_Eyebrows_R'
+'Ctl_Eye_L','Ctl_Eye_R']                           # eb는 위쪽. 눈을 컨트롤하는 패널들을 넣어둔 것.
 #emList = ['Ctl_Mouth','Ctl_Jaw','Ctl_Corner_Lips_L','Ctl_Corner_Lips_R']
 moList = ['Mouth_Closed_Chin_Raised','Kiss','Smile_Lips_Closed','Frown','Lips_Inner',
-'Mouth_Closed_Contracted_Jaw','Mouth_Opened_ClosedTeeth','Smile_Lips_Opened_Expr']
-ebFrwY = [-1,-1,-1,0,0]
+'Mouth_Closed_Contracted_Jaw','Mouth_Opened_ClosedTeeth','Smile_Lips_Opened_Expr']       # mo는 아래쪽. 입을 컨트롤하는 패널들을 넣어줌.
+ebFrwY = [-1,-1,-1,0,0]                              # eb는 위쪽.    Frw는 frown 화난표정.  -1 -1 -1 0 0 이 각각 패널들에 들어가는것.
 ebFrwX = [0,1,1,0,0]
 ebRaiY = [0,0,0,0.5,0.5]
 ebZero = [0,0,0,0,0]
 ebSadd = [1,-1,-1,0,0]
 moZero = [0,0,0,0,0,0,0,0,0.3,0,0]
-moKis = [0,10,0,0,0,0,0,0,0.3,0,0]
+moKis = [0,10,0,0,0,0,0,0,0.3,0,0]                    # mo는 아래쪽.
 moSml = [0,0,10,0,0,0,0,0,0.3,0,0]
 moHap = [0,0,0,0,0,0,0,10,0,0,0]
 moSad = [0,0,0,10,0,0,0,0,0,0,0]
@@ -71,18 +71,18 @@ mc.playbackOptions(minTime='0sec', maxTime='3600sec')
 mc.currentTime(0, edit=True)
 
 # Our Python function that can be changed to do whatever we want:
-def portData(arg):
+def portData(arg):       # 데이터 값을 받는.
     """
     Read the 'serial' data passed in from the commandPort
     """
 
-    recVal = str(arg)
+    recVal = str(arg)      # 받은 데이터 값을 recVal에 넣음.
     
     #cases of expression
-    if recVal=="eye_brow_down_nose_wrinkle": 
+    if recVal=="eye_brow_down_nose_wrinkle":      # 받은 데이터의 값(recVal)이 "ete_brow~~~표정이면"
         for i in range(5):
             if i==0:
-                keyAnim1(ebList[i],'Eyebrows_Frown', 10)
+                keyAnim1(ebList[i],'Eyebrows_Frown', 10)                     # key프레임으로 들어가서 저장이 되고.
                 keyAnim1(ebList[i], 'Eyebrows_Raised', 0)    
                 keyAnim1('Ctl_Eye_L', 'Eyelid_Dn_Raised', 0)
                 keyAnim1('Ctl_Eye_R', 'Eyelid_Dn_Raised', 0) 
