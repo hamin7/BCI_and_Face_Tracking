@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\bin\Release\UDP_to_Serial.exe.config
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\bin\Release\UDP_to_Serial.exe
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\bin\Release\UDP_to_Serial.pdb
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.csprojAssemblyReference.cache
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.Form1.resources
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.Properties.Resources.resources
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.csproj.GenerateResource.cache
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.exe
+C:\Users\user\Desktop\김은혜\UDP_to_Serial_0831\UDP_to_Serial\obj\Release\UDP_to_Serial.pdb
