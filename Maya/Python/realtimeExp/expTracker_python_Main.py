@@ -369,8 +369,8 @@ def deformface():
         numcurrenttime = gnumcurrenttime			
         bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
 		
-        if len(bonename) > 0:			# 목 링크. 내꺼에선 Character1_Ctrl_Neck. bonename 0 , 180, 0 해놓고 저장.
-            cX = cmds.textField('HeadbonenameXF', q=True, tx=True )
+        if len(bonename) > 0:			# bonename > 0 == 값이 있으면. 목 링크. 내꺼에선 Character1_Ctrl_Neck. bonename 0 , 180, 0 해놓고 저장. 
+            cX = cmds.textField('HeadbonenameXF', q=True, tx=True )			# cX, cY, cZ는 
             cY = cmds.textField('HeadbonenameYF', q=True, tx=True )
             cZ = cmds.textField('HeadbonenameZF', q=True, tx=True )
             CrX = 0;
