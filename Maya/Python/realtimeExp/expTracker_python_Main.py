@@ -356,8 +356,8 @@ def add_row(*args):
 
 
 def deformface():
-    global dataarray
-    if len(dataarray) < 3:
+    global dataarray			# dataarray는 전역변수
+    if len(dataarray) < 3:			# 
     	return 0
 		
     all_rows = cmds.scriptTable('scrtable', query=True, rows=True)
@@ -419,7 +419,7 @@ def deformface():
                     datastring = '%.4f' % recdataDeformStreng
                     cmds.scriptTable('scrtable', e=True, ci=[i, 3], cv=datastring)
 
-
+# portData가 커맨드 포트에서 받는것.
 def portData(arg):
     """
     Read the 'serial' data passed in from the commandPort
@@ -427,16 +427,16 @@ def portData(arg):
     global recend
     global dataarray
 
-    dataarray=[]
-    recVal = str(arg)
-    strArray = recVal.split(",")
-    for i in range(0,23):
-        dataarray.append(strArray[i])
-        print(strArray[i])
+    dataarray=[]			# dataarray는 전역변수.
+    recVal = str(arg)			# 받아서
+    strArray = recVal.split(",")			# ,로 나누고
+    for i in range(0,23):			# 23개의 값이 오니까. 
+        dataarray.append(strArray[i])			# 배열에 넣어두고
+        print(strArray[i])			# 이건 그냥 확인하라고 만든 것.
     #createTimer(0.03, deformface)
     deformface()
 
-    
+# deactivateCommandPort는 커맨드 포트 닫아주는거 
 def deactivateCommandPort(host, port):
     path = host + ":" + port
     active = cmds.commandPort(path, q=True)
@@ -445,7 +445,8 @@ def deactivateCommandPort(host, port):
     else:
         print("%s is was not active" % path)
 
-
+# createTimer는 실시간 이니까 일정 시간마다 새로고침 하면 싶겠다 싶어서 만들었지만 오류가 너무 많이 떠서 안쓸거얌. 걍 0.1초 간격으로 받기만 하쟈
+# 시간 간격이 좁아질수록 랙이 심하니 최적화 필요
 def createTimer(seconds, function, *args, **kwargs):
     def isItTime():
         now = time.time()
