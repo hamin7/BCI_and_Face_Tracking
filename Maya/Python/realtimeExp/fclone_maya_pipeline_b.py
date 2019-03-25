@@ -439,6 +439,7 @@ BINARY = 0x02
 
 import pymel.core as pm
 
+# deformface는 표정을 넣는 함수
 def deformface():
 	global dataarray 
 	if len(dataarray) < 3:
