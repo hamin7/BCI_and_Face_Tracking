@@ -362,14 +362,14 @@ def deformface():
 		
     all_rows = cmds.scriptTable('scrtable', query=True, rows=True)			# scrtable은 노란 창. 거기 있는 것들 받아와서 all_rows에 넣어주는 것.
     global recstart
-    global gnumcurrenttime
+    global gnumcurrenttime			# gnumcurrenttime은 현재시간. 기본 값은 1로 되어있고 1프레임으로 계속 하는 것. 별거 아님.
     if all_rows > 1 and recstart == 1:			# recstart는 토글버튼. 첨엔 0 인데 start real time expression누르면 1 0 1 0 바뀜.
         ornum = 1;
 		
-        numcurrenttime = gnumcurrenttime
+        numcurrenttime = gnumcurrenttime			
         bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
 		
-        if len(bonename) > 0:
+        if len(bonename) > 0:			# 목 링크. 내꺼에선 Character1_Ctrl_Neck. bonename 0 , 180, 0 해놓고 저장.
             cX = cmds.textField('HeadbonenameXF', q=True, tx=True )
             cY = cmds.textField('HeadbonenameYF', q=True, tx=True )
             cZ = cmds.textField('HeadbonenameZF', q=True, tx=True )
