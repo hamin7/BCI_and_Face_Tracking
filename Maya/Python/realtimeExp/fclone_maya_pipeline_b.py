@@ -360,6 +360,8 @@ def poseTrackerWindow():
 	
 poseTrackerWindow()
 
+# 여기 위에까지가 윈도우 창 만드는거
+
 #function that loads target list to the UI
 
 def loadTargetList():
