@@ -16,7 +16,7 @@ menulabelarr = ['Brow Left UP','Brow Left Down','Brow Right UP','Brow Right Down
                 'Mouse Left Smile','Mouse Right Smile','Mouse Left Spread','Mouse Right Spread','Mouse Left Frawn','Mouse Right Frawn','Mouse Left Centering','Mouse Right Centering','Cheek Left UP',
                 'Cheek Right UP']
 """
-
+# 총 20개 이고 앞에 x, y, z가 있는 것.
 
 # Our mel global proc.
 melproc = """
@@ -357,13 +357,13 @@ def add_row(*args):
 
 def deformface():
     global dataarray			# dataarray는 전역변수
-    if len(dataarray) < 3:			# 
+    if len(dataarray) < 3:			# 3개는 x, y, z 그 세개라도 오면 목 움직임이라도 구현. 
     	return 0
 		
-    all_rows = cmds.scriptTable('scrtable', query=True, rows=True)
+    all_rows = cmds.scriptTable('scrtable', query=True, rows=True)			# scrtable은 노란 창. 거기 있는 것들 받아와서 all_rows에 넣어주는 것.
     global recstart
     global gnumcurrenttime
-    if all_rows > 1 and recstart == 1:
+    if all_rows > 1 and recstart == 1:			# recstart는 토글버튼. 첨엔 0 인데 start real time expression누르면 1 0 1 0 바뀜.
         ornum = 1;
 		
         numcurrenttime = gnumcurrenttime
