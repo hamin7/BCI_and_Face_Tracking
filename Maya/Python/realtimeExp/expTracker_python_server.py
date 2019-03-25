@@ -1,3 +1,4 @@
+# 웹 소켓 방식
 import socket
 import sys
 
@@ -40,9 +41,9 @@ def socket_accept():
 #명령
 def send_commands(conn):
     while True:
-        client_response = str(conn.recv(2048), "utf=8")
-        print(client_response, end="")
-        maya.send(client_response.encode())
+        client_response = str(conn.recv(2048), "utf=8")         # client response를 받으면, utf파일로 디코드, str으로 저장.
+        print(client_response, end="")          # 그냥 값 확인하려고 넣어둔 코드.
+        maya.send(client_response.encode())         # str으로 저장 된 것을 maya로 보내줌
         
 
 def main():
