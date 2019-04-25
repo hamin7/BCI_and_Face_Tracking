@@ -1,0 +1,21 @@
+Genesis2FemaleBlends, Character1_Ctrl_Neck,0,190,0,8080
+BrowUpL,Brow Left UP,0,1,111,2
+BrowDownL,Brow Left Down,0,1,122,3
+BrowUpR,Brow Right UP,0,1,110,4
+BrowDownR,Brow Right Down,0,1,121,5
+BrowSqueeze,Brow Centering,0,1,112,6
+BrowOuterDownL,Brow outer left down,0,1,116,7
+BrowOuterDownR,Brow outer right down,0,1,115,8
+EyesClosedL,Eye Close Left,0,1,87,9
+EyesClosedR,Eye Close Right,0,1,86,10
+MouthOpen,Mouse Open,0,1,54,11
+MouthSmileSimpleL,Mouse Left Smile,0,1,48,12
+MouthSmileSimpleR,Mouse Right Smile,0,1,47,13
+MouthSide_SideL,Mouse Left Spread,0,1,52,14
+MouthSide_SideR,Mouse Right Spread,0,1,51,15
+MouthNarrowL,Mouse Left Frawn,0,1,56,16
+MouthNarrowR,Mouse Right Frawn,0,1,55,17
+MouthFrown,Mouse Left Centering,0,1,57,18
+MouthCornerUpDown,Mouse Right Centering,0,1,58,19
+CheekCreaseL,Cheek Left UP,0,1,109,20
+CheekCreaseR,Cheek Right UP,0,1,108,21
