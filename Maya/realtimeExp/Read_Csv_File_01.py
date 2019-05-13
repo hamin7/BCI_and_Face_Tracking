@@ -9,7 +9,7 @@ args = parser.parse_args()
 csv_file = args.file
 
 # open csv file
-with open(30Hz_EMO_1 3 8 9 10 12_seq_30_epoch_20_stack_4_hidden_1024_ori.csv, 'rb') as csvfile:
+with open(csv_file, 'rb') as csvfile:
 
     # get number of columns
     for line in csvfile.readlines():
