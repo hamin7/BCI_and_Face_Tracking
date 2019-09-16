@@ -358,6 +358,7 @@ def add_row(*args):
 def deformface():
     global dataarray
     if len(dataarray) < 3:
+        # dataarray의 인자의 첫 세개는 목뼈의 x,y,z좌표 이므로 이것이 없다면 facial_mocap의 의미 없으므로 0을 리턴.
     	return 0
 
     all_rows = cmds.scriptTable('scrtable', query=True, rows=True)
@@ -387,6 +388,7 @@ def deformface():
             pm.rotate(bjoint, [float(dataarray[0])*-1+CrX ,float(dataarray[1])*-1+CrY,float(dataarray[2])*-1+CrZ], euler= True,a=True, ws=False)
             #if recnow ==1
             pm.setKeyframe(bjoint, v=float(dataarray[0])*-1+CrX, attribute='rotateX', t=[numcurrenttime])
+                # numcurrenttime 증가시키는 함수는 어딨지?
             pm.setKeyframe(bjoint, v=float(dataarray[1])*-1+CrY, attribute='rotateY', t=[numcurrenttime])
             pm.setKeyframe(bjoint, v=float(dataarray[2])*-1+CrZ, attribute='rotateZ', t=[numcurrenttime])
 
@@ -428,12 +430,15 @@ def portData(arg):
     global dataarray
 
     dataarray=[]
+        # 이차 배열의 첫 배열 dataarray.
     recVal = str(arg)
         # 받은 arg 스트링을 recVal에 넣음.
     strArray = recVal.split(",")
-        # recVal 스트링을
+        # recVal 스트링을 , 경계로 쪼갬.
     for i in range(0,23):
+        # 24가지의 데이터가 들어옴.
         dataarray.append(strArray[i])
+            # dataarray에 strArray[i] 첨부.
         print(strArray[i])
     #createTimer(0.03, deformface)
     deformface()
