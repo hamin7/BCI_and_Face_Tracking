@@ -11,26 +11,9 @@ recstart = 0
 selectedBlend = ""
 dataarray = []
 gnumcurrenttime = 1
-"""
-menulabelarr = ['Brow Left UP','Brow Left Down','Brow Right UP','Brow Right Down','Brow Centering','Brow outer left down','Brow outer right down','Eye Close Left','Eye Close Right','Mouse Open',
-                'Mouse Left Smile','Mouse Right Smile','Mouse Left Spread','Mouse Right Spread','Mouse Left Frawn','Mouse Right Frawn','Mouse Left Centering','Mouse Right Centering','Cheek Left UP',
-                'Cheek Right UP']
-"""
-
-
-# Our mel global proc.
-melproc = """
-global proc portData(string $arg){
-    python(("portData(\\"" + $arg + "\\")"));
-}
-"""
-mm.eval(melproc)
 
 def edit_cell(row, column, value):
     return 1
-
-
-
 
 def startrealtimeexp(*args):
     global recstart
@@ -49,9 +32,6 @@ def startrealtimeexp(*args):
 	    #Stop Comm
             deactivateCommandPort('127.0.0.1', '7777')
 
-
-
-
 def delete_sel_row(*args):
     if recstart == 0:
         try:
@@ -62,9 +42,6 @@ def delete_sel_row(*args):
                 cmds.scriptTable('scrtable', edit=True,deleteRow=selected_row)
         except:
             print('Select Row to Delete')
-
-
-
 
 def savepresetfile(*args):
     blendshapetxt = cmds.textField('selectedBlendShapeText', q=True, tx=True )
@@ -127,9 +104,6 @@ def savepresetfile(*args):
         writer.writerow(data_list)
     tmp_csv_file.close()
     cmds.warning( "Saved file (" +o_file+ ")" )
-
-
-
 
 def loadpresetfile(*args):
     if recstart != 0:
