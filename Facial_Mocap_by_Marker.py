@@ -12,6 +12,22 @@ selectedBlend = ""
 dataarray = []
 gnumcurrenttime = 1
 
+"""
+menulabelarr = ['Brow Left UP','Brow Left Down','Brow Right UP','Brow Right Down','Brow Centering','Brow outer left down','Brow outer right down','Eye Close Left','Eye Close Right','Mouse Open',
+                'Mouse Left Smile','Mouse Right Smile','Mouse Left Spread','Mouse Right Spread','Mouse Left Frawn','Mouse Right Frawn','Mouse Left Centering','Mouse Right Centering','Cheek Left UP',
+                'Cheek Right UP']
+"""
+
+
+# Our mel global proc.
+melproc = """
+global proc portData(string $arg){
+    python(("portData(\\"" + $arg + "\\")"));
+}
+"""
+
+mm.eval(melproc)
+
 def edit_cell(row, column, value):
     return 1
 
@@ -344,30 +360,13 @@ def deformface():
         numcurrenttime = gnumcurrenttime
         bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
 
-        if len(Jaw_CTRL) > 0:
-
-            cX = 0;
-            cY = 0;
-            cZ = 0;
-
-            CrX = 0;
-            CrY = 0;
-            CrZ = 0;
-
-            if cX.replace(".","").isdigit():
-                CrX = float(cX);
-            if cY.replace(".","").isdigit():
-                CrY = float(cY);
-            if cZ.replace(".","").isdigit():
-                CrZ = float(cZ);
-
-            # bjoint = pm.PyNode(Jaw_CTRL)
-            pm.move([float(dataarray[0])*-1+CrX ,float(dataarray[1])*-1+CrY,float(dataarray[2])*-1+CrZ], 'pSphere1', absolute=True )
-            #if recnow ==1
-            pm.setKeyframe(bjoint, v=float(dataarray[0])*-1+CrX, attribute='TranslateX', t=[numcurrenttime])
-                # numcurrenttime 증가시키는 함수는 어딨지?
-            pm.setKeyframe(bjoint, v=float(dataarray[1])*-1+CrY, attribute='TranslateY', t=[numcurrenttime])
-            pm.setKeyframe(bjoint, v=float(dataarray[2])*-1+CrZ, attribute='TranslateZ', t=[numcurrenttime])
+        # bjoint = pm.PyNode(Jaw_CTRL)
+        pm.move(float(dataarray[0]),float(dataarray[1]),float(dataarray[2]), 'LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        #if recnow ==1
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[0]), attribute='TranslateX', t=[numcurrenttime])
+            # numcurrenttime 증가시키는 함수는 어딨지?
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[1]), attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[2]), attribute='TranslateZ', t=[numcurrenttime])
 
 
 def portData(arg):
