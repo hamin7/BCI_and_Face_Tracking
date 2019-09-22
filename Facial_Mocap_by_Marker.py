@@ -166,10 +166,11 @@ def expTrackerWindow():
         cmds.deleteUI('expTrackerWindow')
 
     #window def
-    cmds.window('expTrackerWindow',widthHeight=(900,400),title='expTracker-conelab',minimizeButton=False,maximizeButton=False,resizeToFitChildren = True, sizeable = True)
+    cmds.window('expTrackerWindow',widthHeight=(900,400),title='Mustache_Boy_Facial_Mocap-conelab',minimizeButton=False,maximizeButton=False,resizeToFitChildren = True, sizeable = True)
     #cmds.rowColumnLayout(numberOfColumns=3,columnWidth=[(1,300),(2,300),(3,300)],backgroundColor=[200,200,0])
-
-#select an existing blendShape node
+    
+    '''
+    #select an existing blendShape node
     cmds.rowColumnLayout(numberOfColumns=6,columnWidth=[(1,150),(2,25),(3,300),(4,25),(5,200),(6,200)],backgroundColor=[1,0.9843,0.7961])
     cmds.text( label='Blend Shape node name : ' ,align='right' )
     cmds.text( label='' )
@@ -223,50 +224,56 @@ def expTrackerWindow():
     cmds.text( label='' )
     cmds.text( label='' )
     cmds.text( label='' )
+    '''
+    
 
+    # start Real Time Expression 뒷 배경.
     cmds.columnLayout('mytable', width=900,backgroundColor=[1,0.9098,0.4118])
-
+    
+    '''
     table =  cmds.scriptTable('scrtable',rows=0, columns=6,columnWidth=([1,300],[2,300],[3,145],[4,145],[5,1],[6,1]),
     	label=[(1,"Target"), (2,"Link"), (3,"Receive val"), (4,"Strength"), (5,"ID(Target)"), (6,"ID(Link)")], width=900,
     	cellChangedCmd=edit_cell)
+    '''
+    #cmds.rowColumnLayout(numberOfColumns = 3, columnWidth = [(1,100),(2, 300), (3, 500)])
 
-    cmds.rowColumnLayout(numberOfColumns = 3, columnWidth = [(1,100),(2, 300), (3, 500)])
+
+    '''
+    cmds.text( label='' )
+    cmds.text( label='' )
+    #cmds.button( label = 'Delete select row',command=delete_sel_row,backgroundColor=[0.3412,0.8196,0.7882] )
 
 
     cmds.text( label='' )
     cmds.text( label='' )
-    cmds.button( label = 'Delete select row',command=delete_sel_row,backgroundColor=[0.3412,0.8196,0.7882] )
-
-
-    cmds.text( label='' )
-    cmds.text( label='' )
     cmds.text( label='' )
 
-    cmds.columnLayout('temp2', width=900)
+    #cmds.columnLayout('temp2', width=900)
     cmds.rowColumnLayout(numberOfColumns = 4, columnWidth = [(1,100),(2, 300), (3, 300),(4,200)],backgroundColor=[1,0.9098,0.4118])
 
     cmds.text( label='' )
-    cmds.text( label='Head bone name' )
-    Headbonename = cmds.textField('HeadbonenameF')
+    #cmds.text( label='Head bone name' )
+    #Headbonename = cmds.textField('HeadbonenameF')
     cmds.text( label='' )
 
 
     cmds.text( label='' )
-    cmds.text( label='Head bone rotation compensation X' )
-    HeadbonenameX = cmds.textField('HeadbonenameXF',text='0')
+    #cmds.text( label='Head bone rotation compensation X' )
+    #HeadbonenameX = cmds.textField('HeadbonenameXF',text='0')
     cmds.text( label='' )
 
 
     cmds.text( label='' )
-    cmds.text( label='Head bone rotation compensation Y' )
-    HeadbonenameY = cmds.textField('HeadbonenameYF',text='0')
+    #cmds.text( label='Head bone rotation compensation Y' )
+    #HeadbonenameY = cmds.textField('HeadbonenameYF',text='0')
     cmds.text( label='' )
 
 
     cmds.text( label='' )
-    cmds.text( label='Head bone rotation compensation Z' )
-    HeadbonenameZ = cmds.textField('HeadbonenameZF',text='0')
+    #cmds.text( label='Head bone rotation compensation Z' )
+    #HeadbonenameZ = cmds.textField('HeadbonenameZF',text='0')
     cmds.text( label='' )
+    '''
 
     cmds.columnLayout('temp3', width=900)
     cmds.rowColumnLayout(numberOfColumns=5,columnWidth=[(1,200),(2,50),(3,200),(4,150),(5,300)])
@@ -277,9 +284,9 @@ def expTrackerWindow():
     cmds.text( label='' )
     cmds.text( label='' )
 
-    cmds.button( label = 'Save preset', command = savepresetfile,backgroundColor=[0.3412,0.8196,0.7882] )
+    #cmds.button( label = 'Save preset', command = savepresetfile,backgroundColor=[0.3412,0.8196,0.7882] )
     cmds.text( label='' )
-    cmds.button( label = 'Load preset', command = loadpresetfile,backgroundColor=[0.3412,0.8196,0.7882] )
+    #cmds.button( label = 'Load preset', command = loadpresetfile,backgroundColor=[0.3412,0.8196,0.7882] )
     cmds.text( label='' )
     cmds.button( 'realtimecomm', label = 'Start Real Time Expression', command = startrealtimeexp ,backgroundColor=[0.9294,0.3294,0.5216])
 
