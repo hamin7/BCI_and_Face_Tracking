@@ -360,44 +360,100 @@ def deformface():
         numcurrenttime = gnumcurrenttime
         bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
 
-            # bjoint = pm.PyNode(Jaw_CTRL)
-            # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
-        pm.move(float(dataarray[0]),float(dataarray[1]),float(dataarray[2]), 'LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        # bjoint = pm.PyNode(Jaw_CTRL)
+        # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
+            
+        global LowerLipMid_X
+        global LowerLipMid_Y
+        global LowerLipMid_Z
+        
+        LowerLipMid_X = 0.089617
+        LowerLipMid_Y = 0.177767
+        LowerLipMid_Z = 0.075221
+        
+        
+        pm.move(float(dataarray[0])*-1 + LowerLipMid_X, float(dataarray[1])*-1 + LowerLipMid_Y, float(dataarray[2])*-1 + LowerLipMid_Z, 'LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
             #if recnow ==1
-        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[0]), attribute='TranslateX', t=[numcurrenttime])
-            # numcurrenttime 증가시키는 함수는 어딨지?
-        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[1]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[2]), attribute='TranslateZ', t=[numcurrenttime])
+             # numcurrenttime 증가시키는 함수는 어딨지?
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[0])*-1 + LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[1])*-1 + LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('LowerLipMid_CTRL', v=float(dataarray[2])*-1 + LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
         
-            # UpperLipMid_CTRL (dataarray[3] ~ dataarray[5])
-        pm.move(float(dataarray[3]),float(dataarray[4]),float(dataarray[5]), 'UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[3]), attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[4]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[5]), attribute='TranslateZ', t=[numcurrenttime])
         
-            # L_LowerLipMid_CTRL (dataarray[6] ~ dataarray[8])
-        pm.move(float(dataarray[6]),float(dataarray[7]),float(dataarray[8]), 'L_LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[6]), attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[7]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[8]), attribute='TranslateZ', t=[numcurrenttime])
+        # UpperLipMid_CTRL (dataarray[3] ~ dataarray[5])
+            
+        global UpperLipMid_X
+        global UpperLipMid_Y
+        global UpperLipMid_Z
+        
+        UpperLipMid_X = 0.087832
+        UpperLipMid_Y = 0.216568
+        UpperLipMid_Z = 0.074157
+        
+        pm.move(float(dataarray[3])*-1 + UpperLipMid_X, float(dataarray[4])*-1 + UpperLipMid_Y, float(dataarray[5])*-1 + UpperLipMid_Z, 'UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[3])*-1 + UpperLipMid_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[4])*-1 + UpperLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('UpperLipMid_CTRL', v=float(dataarray[5])*-1 + UpperLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # L_LowerLipMid_CTRL (dataarray[6] ~ dataarray[8])
+        
+        global L_LowerLipMid_X
+        global L_LowerLipMid_Y
+        global L_LowerLipMid_Z
+        
+        L_LowerLipMid_X = 0.097783
+        L_LowerLipMid_Y = 0.184848
+        L_LowerLipMid_Z = 0.106411
+        
+        pm.move(float(dataarray[6])*-1 + L_LowerLipMid_X, float(dataarray[7])*-1 + L_LowerLipMid_Y, float(dataarray[8])*-1 + L_LowerLipMid_Z, 'L_LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[6])*-1 + L_LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[7])*-1 + L_LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('L_LowerLipMid_CTRL', v=float(dataarray[8])*-1 + L_LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
 
-            # L_UpperLipMid_CTRL (dataarray[9] ~ dataarray[11])
-        pm.move(float(dataarray[9]),float(dataarray[10]),float(dataarray[11]), 'L_UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[9]), attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[10]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[11]), attribute='TranslateZ', t=[numcurrenttime])
+        # L_UpperLipMid_CTRL (dataarray[9] ~ dataarray[11])
+            
+        global L_UpperLipMid_CTRL_X
+        global L_UpperLipMid_CTRL_Y
+        global L_UpperLipMid_CTRL_Z
         
-            # R_LowerLipMid_CTRL (dataarray[12] ~ dataarray[14])
-        pm.move(float(dataarray[12]),float(dataarray[13]),float(dataarray[14]), 'R_LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[12]), attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[13]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[14]), attribute='TranslateZ', t=[numcurrenttime])
+        L_UpperLipMid_CTRL_X = 0.092385
+        L_UpperLipMid_CTRL_Y = 0.2153
+        L_UpperLipMid_CTRL_Z = 0.095308
         
-            # R_UpperLipMid_CTRL (dataarray[15] ~ dataarray[17])
-        pm.move(float(dataarray[12]),float(dataarray[13]),float(dataarray[14]), 'R_UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[15]), attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[16]), attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[17]), attribute='TranslateZ', t=[numcurrenttime])
+        pm.move(float(dataarray[9])*-1 + L_UpperLipMid_CTRL_X, float(dataarray[10])*-1 + L_UpperLipMid_CTRL_Y, float(dataarray[11])*-1 + L_UpperLipMid_CTRL_Z, 'L_UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[9])*-1 + L_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[10])*-1 + L_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('L_UpperLipMid_CTRL', v=float(dataarray[11])*-1 + L_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # R_LowerLipMid_CTRL (dataarray[12] ~ dataarray[14])
+            
+        global R_LowerLipMid_CTRL_X
+        global R_LowerLipMid_CTRL_Y
+        global R_LowerLipMid_CTRL_Z
+        
+        R_LowerLipMid_CTRL_X = 0.101421
+        R_LowerLipMid_CTRL_Y = 0.185972
+        R_LowerLipMid_CTRL_Z = 0.043421
+         
+        pm.move(float(dataarray[12])*-1 + R_LowerLipMid_CTRL_X, float(dataarray[13])*-1 + R_LowerLipMid_CTRL_Y, float(dataarray[14])*-1 + R_LowerLipMid_CTRL_Z, 'R_LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[12])*-1 + R_LowerLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[13])*-1 + R_LowerLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('R_LowerLipMid_CTRL', v=float(dataarray[14])*-1 + R_LowerLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # R_UpperLipMid_CTRL (dataarray[15] ~ dataarray[17])
+        
+        global R_UpperLipMid_CTRL_X
+        global R_UpperLipMid_CTRL_Y
+        global R_UpperLipMid_CTRL_Z
+        
+        R_UpperLipMid_CTRL_X = 0.094769
+        R_UpperLipMid_CTRL_Y = 0.214611
+        R_UpperLipMid_CTRL_Z = 0.053779
+        
+        pm.move(float(dataarray[12])*-1 + R_UpperLipMid_CTRL_X, float(dataarray[13])*-1 + R_UpperLipMid_CTRL_Y, float(dataarray[14])*-1 + R_UpperLipMid_CTRL_Z, 'R_UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[12])*-1 + R_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[13])*-1 + R_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[14])*-1 + R_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
 
 def portData(arg):
     """
