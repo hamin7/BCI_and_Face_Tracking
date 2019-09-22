@@ -289,6 +289,8 @@ def expTrackerWindow():
     #cmds.button( label = 'Load preset', command = loadpresetfile,backgroundColor=[0.3412,0.8196,0.7882] )
     cmds.text( label='' )
     cmds.button( 'realtimecomm', label = 'Start Real Time Expression', command = startrealtimeexp ,backgroundColor=[0.9294,0.3294,0.5216])
+    
+    cmds.button(label='close', command=('cmds.deleteUI(\"' + window + '\", window=True)'), backgroundColor=[0.9294,0.3294,0.5216])
 
     cmds.text( label='' )
     cmds.text( label='' )
@@ -302,6 +304,11 @@ def expTrackerWindow():
 
 
 expTrackerWindow()
+
+'''
+if (cmds.window("expTrackerWindow", exists=True)):
+    cmds.deleteUI("expTrackerWindow")
+'''
 
 #function that loads target list to the UI
 
