@@ -451,9 +451,9 @@ def deformface():
         R_UpperLipMid_CTRL_Z = 0.053779
         
         pm.move(float(dataarray[12])*-1 + R_UpperLipMid_CTRL_X, float(dataarray[13])*-1 + R_UpperLipMid_CTRL_Y, float(dataarray[14])*-1 + R_UpperLipMid_CTRL_Z, 'R_UpperLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[12])*-1 + R_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[13])*-1 + R_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[14])*-1 + R_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[15])*-1 + R_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[16])*-1 + R_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('R_UpperLipMid_CTRL', v=float(dataarray[17])*-1 + R_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
 
 def portData(arg):
     """
