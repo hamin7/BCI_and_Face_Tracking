@@ -34,7 +34,7 @@ def edit_cell(row, column, value):
 def startrealtimeexp(*args):
     global recstart
     global recend
-    numrow = cmds.scriptTable('scrtable', query=True, rows=True)
+    #numrow = cmds.scriptTable('scrtable', query=True, rows=True)
     if len(selectedBlend) >= 0:
         if recstart == 0:
             recstart = 1
@@ -47,7 +47,7 @@ def startrealtimeexp(*args):
             cmds.button( 'realtimecomm' ,edit=True, label = 'Start Real Time Expression' )
 	    #Stop Comm
             deactivateCommandPort('127.0.0.1', '7777')
-
+'''
 def delete_sel_row(*args):
     if recstart == 0:
         try:
@@ -58,7 +58,9 @@ def delete_sel_row(*args):
                 cmds.scriptTable('scrtable', edit=True,deleteRow=selected_row)
         except:
             print('Select Row to Delete')
+'''
 
+'''
 def savepresetfile(*args):
     blendshapetxt = cmds.textField('selectedBlendShapeText', q=True, tx=True )
     filename = blendshapetxt + "_mayapipeline_setting.txt"
@@ -120,7 +122,9 @@ def savepresetfile(*args):
         writer.writerow(data_list)
     tmp_csv_file.close()
     cmds.warning( "Saved file (" +o_file+ ")" )
+'''
 
+'''
 def loadpresetfile(*args):
     if recstart != 0:
         return 0
@@ -157,7 +161,7 @@ def loadpresetfile(*args):
                 loadTargetList()
             row_no = 1 + row_no
         o_file.close()
-
+'''
 
 
 
@@ -290,7 +294,7 @@ def expTrackerWindow():
     cmds.text( label='' )
     cmds.button( 'realtimecomm', label = 'Start Real Time Expression', command = startrealtimeexp ,backgroundColor=[0.9294,0.3294,0.5216])
     
-    cmds.button(label='close', command=('cmds.deleteUI(\"' + window + '\", window=True)'), backgroundColor=[0.9294,0.3294,0.5216])
+    #cmds.button(label='close', command=('cmds.deleteUI(\"' + window + '\", window=True)'), backgroundColor=[0.9294,0.3294,0.5216])
 
     cmds.text( label='' )
     cmds.text( label='' )
@@ -310,6 +314,7 @@ if (cmds.window("expTrackerWindow", exists=True)):
     cmds.deleteUI("expTrackerWindow")
 '''
 
+'''
 #function that loads target list to the UI
 
 def loadTargetList():
@@ -326,8 +331,9 @@ def loadTargetList():
     blendTargets = cmds.listAttr (selectedBlend + '.w', m = True)
     for target in blendTargets:
         cmds.menuItem(label='%s' %(target), parent='targetObjectMenu')
+'''
 
-
+'''
 def addlink():
     if recstart == 0:
         selectedBlend = cmds.optionMenu('targetObjectMenu', query=True, value=True )
@@ -337,8 +343,9 @@ def addlink():
 
         if selectedBlendI > 1 and selectedLinkBlendI > 1:
             add_row();
+'''
 
-
+'''
 def add_row(*args):
     cmds.scriptTable('scrtable', edit=True, selectedRows=[])
 
@@ -356,7 +363,7 @@ def add_row(*args):
     cmds.scriptTable('scrtable', e=True, ci=[last_row_num, 4], cv='1')
     cmds.scriptTable('scrtable', e=True, ci=[last_row_num, 5], cv=selectedBlendI)
     cmds.scriptTable('scrtable', e=True, ci=[last_row_num, 6], cv=selectedLinkBlendI)
-
+'''
 
 
 def deformface():
@@ -365,14 +372,16 @@ def deformface():
         # dataarray의 인자의 첫 세개는 목뼈의 x,y,z좌표 이므로 이것이 없다면 facial_mocap의 의미 없으므로 0을 리턴.
     	return 0
 
-    all_rows = cmds.scriptTable('scrtable', query=True, rows=True)
+    #all_rows = cmds.scriptTable('scrtable', query=True, rows=True)
     global recstart
     global gnumcurrenttime
+    
+    all_rows = 1;
     if all_rows > 0 and recstart == 1:
         ornum = 1;
 
         numcurrenttime = gnumcurrenttime
-        bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
+        #bonename = cmds.textField('HeadbonenameF', q=True, tx=True )
 
         # bjoint = pm.PyNode(Jaw_CTRL)
         # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
@@ -499,7 +508,7 @@ def deactivateCommandPort(host, port):
     else:
         print("%s is was not active" % path)
 
-
+'''
 def createTimer(seconds, function, *args, **kwargs):
     def isItTime():
         now = time.time()
@@ -509,3 +518,4 @@ def createTimer(seconds, function, *args, **kwargs):
 
         isItTime.then = 0           #time.time() # set this to zero if you want it to fire once immediately
         cmds.scriptJob(event=("idle", isItTime))
+'''
