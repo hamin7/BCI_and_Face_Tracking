@@ -394,6 +394,7 @@ def deformface():
         LowerLipMid_Y = 0.177767
         LowerLipMid_Z = 0.075221
         
+        print((float(dataarray[2])*(-1)) + LowerLipMid_Y)
         
         pm.move(float(dataarray[0])*-1 + LowerLipMid_X, float(dataarray[1])*-1 + LowerLipMid_Y, float(dataarray[2])*-1 + LowerLipMid_Z, 'LowerLipMid_CTRL', relative=True, objectSpace=True, worldSpaceDistance=True )
             #if recnow ==1
@@ -495,7 +496,7 @@ def portData(arg):
         # 24가지의 데이터가 들어옴.
         dataarray.append(strArray[i])
             # dataarray에 strArray[i] 첨부.
-        print(strArray[i])
+        #print(strArray[i])
     #createTimer(0.03, deformface)
     deformface()
 
