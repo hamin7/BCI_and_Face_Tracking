@@ -376,6 +376,14 @@ def deformface():
     global recstart
     global gnumcurrenttime
     
+    global strengthX
+    global strengthY
+    global strengthZ
+    
+    strengthX = 0.3;
+    strengthY = 0.06;
+    strengthZ = 0.07;
+    
     all_rows = 1;
     if all_rows > 0 and recstart == 1:
         ornum = 1;
@@ -398,7 +406,7 @@ def deformface():
         
         print((float(dataarray[2])*(-1)) + LowerLipMid_Y)
         
-        pm.move(float(dataarray[0]) - LowerLipMid_X, float(dataarray[1]) - LowerLipMid_Y, float(dataarray[2]) - + LowerLipMid_Z, 'name_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[0]) - LowerLipMid_X) * strengthX, (float(dataarray[1]) - LowerLipMid_Y) * strengthY, (float(dataarray[2]) - + LowerLipMid_Z) * strengthZ, 'name_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
             #if recnow ==1
              # numcurrenttime 증가시키는 함수는 어딨지?
         pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[0]) - LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
@@ -417,11 +425,47 @@ def deformface():
         UpperLipMid_Y = 0.216568
         UpperLipMid_Z = 0.074157
         
-        pm.move(float(dataarray[3]) - UpperLipMid_X, float(dataarray[4]) - UpperLipMid_Y, float(dataarray[5]) - UpperLipMid_Z, 'name_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[3]) - UpperLipMid_X) * strengthX, (float(dataarray[4]) - UpperLipMid_Y) * strengthY, (float(dataarray[5]) - UpperLipMid_Z) * strengthZ, 'name_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
         pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[3]) - UpperLipMid_X, attribute='TranslateX', t=[numcurrenttime])
         pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[4]) - UpperLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
         pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[5]) - UpperLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
         
+        
+                # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
+            
+        global LowerLipMid_X
+        global LowerLipMid_Y
+        global LowerLipMid_Z
+        
+        LowerLipMid_X = 0.089617
+        LowerLipMid_Y = 0.177767
+        LowerLipMid_Z = 0.075221
+        
+        print((float(dataarray[2])*(-1)) + LowerLipMid_Y)
+        
+        pm.move(0, (float(dataarray[1]) - LowerLipMid_Y) * strengthY, 0, 'name_down_teeth_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+            #if recnow ==1
+             # numcurrenttime 증가시키는 함수는 어딨지?
+        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[0]) - LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[1]) - LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[2]) - LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        
+        
+        # UpperLipMid_CTRL (dataarray[3] ~ dataarray[5])
+            
+        global UpperLipMid_X
+        global UpperLipMid_Y
+        global UpperLipMid_Z
+        
+        UpperLipMid_X = 0.087832
+        UpperLipMid_Y = 0.216568
+        UpperLipMid_Z = 0.074157
+        
+        pm.move(0, (float(dataarray[4]) - UpperLipMid_Y) * strengthY, 0, 'name_up_teeth_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[3]) - UpperLipMid_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[4]) - UpperLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[5]) - UpperLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
         
         # L_LowerLipMid_CTRL (dataarray[6] ~ dataarray[8])
         
@@ -433,7 +477,7 @@ def deformface():
         L_LowerLipMid_Y = 0.184848
         L_LowerLipMid_Z = 0.106411
         
-        pm.move(float(dataarray[6]) - L_LowerLipMid_X, float(dataarray[7]) - L_LowerLipMid_Y, float(dataarray[8]) - L_LowerLipMid_Z, 'name_l_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[6]) - L_LowerLipMid_X) * strengthX, (float(dataarray[7]) - L_LowerLipMid_Y) * strengthY, (float(dataarray[8]) - L_LowerLipMid_Z) * strengthZ, 'name_l_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
         pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[6]) - L_LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
         pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[7]) - L_LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
         pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[8]) - L_LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
@@ -448,7 +492,7 @@ def deformface():
         L_UpperLipMid_CTRL_Y = 0.2153
         L_UpperLipMid_CTRL_Z = 0.095308
         
-        pm.move(float(dataarray[9]) - L_UpperLipMid_CTRL_X, float(dataarray[10]) - L_UpperLipMid_CTRL_Y, float(dataarray[11]) - L_UpperLipMid_CTRL_Z, 'name_l_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[9]) - L_UpperLipMid_CTRL_X) * strengthX, (float(dataarray[10]) - L_UpperLipMid_CTRL_Y) * strengthY, (float(dataarray[11]) - L_UpperLipMid_CTRL_Z) * strengthZ, 'name_l_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
         pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[9]) - L_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
         pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[10]) - L_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
         pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[11]) - L_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
@@ -463,7 +507,7 @@ def deformface():
         R_LowerLipMid_CTRL_Y = 0.185972
         R_LowerLipMid_CTRL_Z = 0.043421
          
-        pm.move(float(dataarray[12]) - R_LowerLipMid_CTRL_X, float(dataarray[13]) - R_LowerLipMid_CTRL_Y, float(dataarray[14]) - R_LowerLipMid_CTRL_Z, 'name_r_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[12]) - R_LowerLipMid_CTRL_X) * strengthX, (float(dataarray[13]) - R_LowerLipMid_CTRL_Y) * strengthY, (float(dataarray[14]) - R_LowerLipMid_CTRL_Z) * strengthZ, 'name_r_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
         pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[12]) - R_LowerLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
         pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[13]) - R_LowerLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
         pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[14]) - R_LowerLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
@@ -478,7 +522,7 @@ def deformface():
         R_UpperLipMid_CTRL_Y = 0.214611
         R_UpperLipMid_CTRL_Z = 0.053779
         
-        pm.move(float(dataarray[15]) - R_UpperLipMid_CTRL_X, float(dataarray[16]) - R_UpperLipMid_CTRL_Y, float(dataarray[17]) - R_UpperLipMid_CTRL_Z, 'name_r_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.move((float(dataarray[15]) - R_UpperLipMid_CTRL_X) * strengthX, (float(dataarray[16]) - R_UpperLipMid_CTRL_Y) * strengthY, (float(dataarray[17]) - R_UpperLipMid_CTRL_Z) * strengthZ, 'name_r_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
         pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[15]) - R_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
         pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[16]) - R_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
         pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[17]) - R_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
