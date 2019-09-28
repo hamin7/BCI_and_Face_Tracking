@@ -20,7 +20,7 @@ public class first : MonoBehaviour {
     public SpriteRenderer OnOff;
     Transform GOtransform;
     SpriteRenderer GOspriterenderer;
-    public Animator CountDownAnim;
+
     public TextMesh CenterOfStimuli;
 
 
@@ -41,13 +41,17 @@ public class first : MonoBehaviour {
     private void OnEnable()
     {
         //StartCoroutine(Switching());
+
+        //1.0.11.0 이후
+        currentScale = 0;
+        GOtransform.localScale = scales[currentScale];
+        GOspriterenderer.color = colors[currentScale];
+        OnOff.color = IconColors[currentScale];
+
         StartCoroutine(revisedSwitching());
-        //StartCoroutine(CountDown());
     }
     IEnumerator CountDown()
     {
-        
-        
         yield return new WaitForSeconds(3f);
         CenterOfStimuli.fontSize=170;
         CenterOfStimuli.text = "3";
@@ -94,7 +98,7 @@ public class first : MonoBehaviour {
 
             tempTime = Time.time;
 
-            if(currentScale == 1 && tempTime - secCount > 2.5f)
+            if(currentScale == 1 && tempTime - secCount > 2.2f)
             {
                 //ENDING POINT
                 checker_1 = 1;
@@ -126,7 +130,7 @@ public class first : MonoBehaviour {
         }
     }
 
-
+    //-------------------------무시-------------------------//
     IEnumerator Switching()
     {
         yield return new WaitForSeconds(3f);

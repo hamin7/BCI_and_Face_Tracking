@@ -24,8 +24,6 @@ public class Singleton : MonoBehaviour {
 
     public static Singleton instance = null;
 
-    public static bool isOn; //ForTest_UDPresponder에서 UDP값 들어오는 거에 따라 참/거짓 할당
-
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -46,31 +44,7 @@ public class Singleton : MonoBehaviour {
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-        //Awake 함수가 씬 로드 될때마다 호출되는건가?
-        /*isOn = false;
-        Debug.Log("SINGLETON]   isOn:" + isOn + " in" + SceneManager.GetActiveScene().name);*/
     }
-
-    //싱글톤의 start 함수는 딱 한번만 호출되고 씬 이동할때 호출되진 않는 듯
-    void Start()
-    {
-        isOn = false;
-        //Debug.Log("SINGLETON]   isOn:" + isOn + " in" + SceneManager.GetActiveScene().name);
-    }
-
-    
-    private void Update()
-    {
-        if(isOn == false && SceneManager.GetActiveScene().name == "Test]RobotStimuli") //씬이름 바뀔수도 있음!
-            ResetToFirstScene();
-    }
-
-    //기기별 자극 씬에서 ForText_UDPresponder에서 호출해도 되긴하지만
-    //UDPresponder 오브젝트가 비활성화되어 있는 틈이 있을 수 있어서 싱글톤에서 호출
-     void ResetToFirstScene()
-    {
-        SceneManager.LoadScene(0);
-    }
-
+ 
     
 }

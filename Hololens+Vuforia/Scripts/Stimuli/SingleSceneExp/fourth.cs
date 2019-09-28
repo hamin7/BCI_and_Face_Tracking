@@ -10,8 +10,6 @@ public class fourth : MonoBehaviour {
     Color[] IconColors = new[] { new Color(0f, 0f, 0f), new Color(1f, 1f, 1f) };
 
     int currentScale;
-    public string start, end;
-    float secCount;
 
     public SpriteRenderer Return;
     Transform GOtransform;
@@ -20,8 +18,7 @@ public class fourth : MonoBehaviour {
 
     void Start () {
         currentScale = 0;
-        start = "01";
-        end = "10";
+
         GOtransform = gameObject.GetComponent<Transform>();
         GOspriterenderer = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -29,19 +26,23 @@ public class fourth : MonoBehaviour {
     private void OnEnable()
     {
         //StartCoroutine(Switching());
+
+        //1.0.11.0 이후
+        currentScale = 0;
+        GOtransform.localScale = scales[currentScale];
+        GOspriterenderer.color = colors[currentScale];
+        Return.color = IconColors[currentScale];
+
         StartCoroutine(revisedSwitching());
     }
 
     IEnumerator revisedSwitching()
     {
         yield return new WaitForSeconds(6f);
-        //secCount = Time.time;
 
         while (true)
         {
             yield return StartCoroutine(WaitFor.Frames(5));
-            //gameObject.GetComponent<Transform>().localScale = scales[currentScale];
-            // gameObject.GetComponent<SpriteRenderer>().color = colors[currentScale];
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];
             Return.color = IconColors[currentScale];
@@ -49,17 +50,15 @@ public class fourth : MonoBehaviour {
             currentScale += 1;
             currentScale %= 2;
 
-            if (currentScale == 1 && first.tempTime - first.secCount>2.5f)
-            //if (currentScale == 1 && first.checker_1 == 1 && first.checker_2 == 0) -> update 함수가 아니라 코루틴이라 캐치 못함...
+            if (currentScale == 1 && first.tempTime - first.secCount>2.2f)
             {
-
                 yield return new WaitForSecondsRealtime(6f);
-                //secCount = Time.time;
             }
         }
 
     }
 
+    //-------------------------무시-------------------------//
     IEnumerator Switching()
     {
         yield return new WaitForSeconds(3f);

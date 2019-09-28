@@ -15,10 +15,11 @@ public class UDPGeneration : MonoBehaviour {
 		if (UDPCommGameObject == null) {
 			Debug.Log ("ERR UDPGEN: UDPSender is required. Self-destructing.");
 			Destroy (this);
-		}	
-	}
-	
-	void Update () {
+		}
+
+    }
+
+    void Update () {
 
         //onSelect된 시점에 PC로 특정 값 보내줘야 함
 
@@ -42,17 +43,30 @@ public class UDPGeneration : MonoBehaviour {
                     DataString = "2";
 
                 }
+                /*
+                 * HM중요 - 기기 추가시 이런 형태로 else if 문단 하나 더 추가해주기
+                else if (MarkerControl.SelectedMarker == "게임오브젝트 이름")
+                {
+                    DataString = "4";
+
+                }
+                */
 
                 //DataString = "onSelect UDP value"; // 조율 후 수정해야할 값
                 var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
-                //실험실 왼쪽 컴퓨터 IP주소랑 포트만 string 값으로 인수 잘 넘겨주면 될듯
                 //IP 주소: 192.168.1.214  포트번호: 8054         트라이얼 받는 포트번호:  8053    홀로렌즈는 8052 포트 열어서 듣기
                 //IP주소 왼쪽 컴 동적할당이라 ip 주소 계속 바뀜
+
+                /*HM 중요  IP 주소 변경: UDP 값을 보내야하는 IP 주소와 포트번호가 바뀔경우 */
+                //어떤 기기가 선택됐느냐에 따라 약속된 값을 매트랩과 미들웨어에 보내주는 코드
+                //comm.SendUDPMessage(string IP주소, string 포트번호, );
+
 #if !UNITY_EDITOR
-                comm.SendUDPMessage("192.168.1.213", "8054", dataBytes);
+                comm.SendUDPMessage("192.168.1.213", "8054", dataBytes); 
                 comm.SendUDPMessage("192.168.1.37", "8053", dataBytes);
+
 #endif
 
                 MarkerControl.onSelect = false; //UDP값 한번만 보내도록
@@ -70,7 +84,9 @@ public class UDPGeneration : MonoBehaviour {
                 var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
-                // #if is required because SendUDPMessage() is async
+                /*HM 중요 IP 주소 변경: UDP 값을 보내야하는 IP 주소와 포트번호가 바뀔경우 */
+                //comm.SendUDPMessage(string IP주소, string 포트번호, );
+                //매트랩에 시작 트리거 보내주기
 #if !UNITY_EDITOR
 			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes); 
 #endif
@@ -89,7 +105,9 @@ public class UDPGeneration : MonoBehaviour {
                 var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
-                // #if is required because SendUDPMessage() is async
+                /*HM 중요 IP 주소 변경: UDP 값을 보내야하는 IP 주소와 포트번호가 바뀔경우 */
+                //comm.SendUDPMessage(string IP주소, string 포트번호, );
+                //매트랩에 끝 트리거 보내주기
 #if !UNITY_EDITOR
 			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes);
 #endif
