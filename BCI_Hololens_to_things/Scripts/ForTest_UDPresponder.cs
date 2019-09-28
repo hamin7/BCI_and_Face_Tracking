@@ -168,6 +168,11 @@ public class ForTest_UDPresponder : MonoBehaviour {
         {
             SceneManager.LoadScene("IntroScene");
             //MarkerControl.isFirstStage = false;
+        }else if(dataString == "80"){ //눈 8번 깜빡임값
+            SceneManager.LoadScene("SSVEP");
+        }else if(dataString == "120") //눈 12번 깜빡임값
+        {
+            SceneManager.LoadScene("Eye");
         }
     }
 
