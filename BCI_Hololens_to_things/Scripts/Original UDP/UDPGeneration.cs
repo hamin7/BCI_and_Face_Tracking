@@ -43,6 +43,11 @@ public class UDPGeneration : MonoBehaviour {
                     DataString = "2";
 
                 }
+                else if (MarkerControl.SelectedMarker == "Cool")
+                {
+                    DataString = "4";
+
+                }
                 /*
                  * HM중요 - 기기 추가시 이런 형태로 else if 문단 하나 더 추가해주기
                 else if (MarkerControl.SelectedMarker == "게임오브젝트 이름")
