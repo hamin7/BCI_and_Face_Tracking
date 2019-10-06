@@ -207,15 +207,19 @@ public class ForTest_UDPresponder : MonoBehaviour {
                 break;
 
                 case "MiddleWare#HanYang#SelectDevice#AirCleaner#02":
-                     Spots.SetActive(false);
+                    Spots.SetActive(false);
                     StimuliSet.SetActive(true);
                 break;
 
-                case "4":
-                    break;
+                case "MiddleWare#HanYang#SelectDevice#AC":
+                    Spots.SetActive(false);
+                    StimuliSet.SetActive(true);
+                break;
 
-                case "5":
-                    break;
+                case "MiddleWare#HanYang#SelectDevice#Bulb":
+                    Spots.SetActive(false);
+                    StimuliSet.SetActive(true);
+                break;
 
                 case "6":
                     break;
@@ -267,7 +271,19 @@ public class ForTest_UDPresponder : MonoBehaviour {
                 StimuliSet.SetActive(true);
                 break;
 
-                default:
+            case "MiddleWare#HanYang#SelectDevice#AC":
+                StimuliSet.transform.position = ApplianceStimuli.transform.position;
+                ApplianceStimuli.SetActive(false);
+                StimuliSet.SetActive(true);
+                break;
+
+            case "MiddleWare#HanYang#SelectDevice#Bulb":
+                StimuliSet.transform.position = ApplianceStimuli.transform.position;
+                ApplianceStimuli.SetActive(false);
+                StimuliSet.SetActive(true);
+                break;
+
+            default:
                     break;
 
             }

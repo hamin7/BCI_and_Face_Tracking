@@ -33,7 +33,7 @@ public class MarkerControl : MonoBehaviour {
         Markers = GameObject.FindGameObjectsWithTag("Player");
 
         //마커 자체 비활성화/활성화 문제 있는듯. 대신에 boundingbox 컴포넌트가 포함된 Icon 참조
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 5; i++)
         {
             Markers[i] = Markers[i].transform.Find("Icon").gameObject;
         }

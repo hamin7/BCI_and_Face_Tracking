@@ -74,13 +74,12 @@ public class third : MonoBehaviour {
                     Commands[i].color = new Color(0f, 0f, 0f, 0f);
                 }
             }
-
         }
-        else if (MarkerControl.SelectedMarker == "Cool")
+        else if (MarkerControl.SelectedMarker == "AC")
         {
             for (int i = 0; i < Commands.Length; i++)
             {
-                if (Commands[i].name == "Cool")
+                if (Commands[i].name == "AC")
                     Command = Commands[i]; //Commands의 첫번째 선택
 
                 else
@@ -88,7 +87,19 @@ public class third : MonoBehaviour {
                     Commands[i].color = new Color(0f, 0f, 0f, 0f);
                 }
             }
+        }
+        else if (MarkerControl.SelectedMarker == "Bulb")
+        {
+            for (int i = 0; i < Commands.Length; i++)
+            {
+                if (Commands[i].name == "Bulb")
+                    Command = Commands[i]; //Commands의 첫번째 선택
 
+                else
+                {
+                    Commands[i].color = new Color(0f, 0f, 0f, 0f);
+                }
+            }
         }
         currentScale = 0;
         GOtransform.localScale = scales[currentScale];

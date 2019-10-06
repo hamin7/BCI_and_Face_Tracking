@@ -33,9 +33,13 @@ public class Star_2 : MonoBehaviour {
         {
             Icon = transform.Find("Air2").transform.GetComponent<SpriteRenderer>();
         }
-        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#Cool")//
+        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#AC")//
         {
-            Icon = transform.Find("Cool").transform.GetComponent<SpriteRenderer>();
+            Icon = transform.Find("AC").transform.GetComponent<SpriteRenderer>();
+        }
+        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#Bulb")//
+        {
+            Icon = transform.Find("Bulb").transform.GetComponent<SpriteRenderer>();
         }
         else
         {

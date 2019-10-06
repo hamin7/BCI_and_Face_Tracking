@@ -43,9 +43,14 @@ public class UDPGeneration : MonoBehaviour {
                     DataString = "2";
 
                 }
-                else if (MarkerControl.SelectedMarker == "Cool")
+                else if (MarkerControl.SelectedMarker == "AC")
                 {
                     DataString = "4";
+
+                }
+                else if (MarkerControl.SelectedMarker == "Bulb")
+                {
+                    DataString = "5";
 
                 }
                 /*
