@@ -393,139 +393,323 @@ def deformface():
 
         # bjoint = pm.PyNode(Jaw_CTRL)
         
-        
-        # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
+        # name_Nose_ctrl (dataarray[0] ~ dataarray[2])
             
-        global LowerLipMid_X
-        global LowerLipMid_Y
-        global LowerLipMid_Z
+        global name_Nose_ctrl_X
+        global name_Nose_ctrl_Y
+        global name_Nose_ctrl_Z
         
-        LowerLipMid_X = 0.089617
-        LowerLipMid_Y = 0.177767
-        LowerLipMid_Z = 0.075221
+        name_Nose_ctrl_X = -0.167494
+        name_Nose_ctrl_Y = 0.411028
+        name_Nose_ctrl_Z = 0.021359
         
-        print((float(dataarray[2])*(-1)) + LowerLipMid_Y)
-        
-        pm.move((float(dataarray[0]) - LowerLipMid_X) * strengthX, (float(dataarray[1]) - LowerLipMid_Y) * strengthY, (float(dataarray[2]) - + LowerLipMid_Z) * strengthZ, 'name_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-            #if recnow ==1
-             # numcurrenttime 증가시키는 함수는 어딨지?
-        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[0]) - LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[1]) - LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[2]) - LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
+        pm.move((float(dataarray[0]) - name_Nose_ctrl_X) * strengthX, (float(dataarray[1]) - name_Nose_ctrl_Y) * strengthY, (float(dataarray[2]) - name_Nose_ctrl_Z) * strengthZ, 'name_Nose_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_Nose_ctrl', v=float(dataarray[0]) - name_Nose_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_Nose_ctrl', v=float(dataarray[1]) - name_Nose_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_Nose_ctrl', v=float(dataarray[2]) - name_Nose_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
         
         
-        
-        # UpperLipMid_CTRL (dataarray[3] ~ dataarray[5])
+        # name_downLip_ctrl (dataarray[3] ~ dataarray[5])
             
-        global UpperLipMid_X
-        global UpperLipMid_Y
-        global UpperLipMid_Z
+        global name_downLip_ctrl_X
+        global name_downLip_ctrl_Y
+        global name_downLip_ctrl_Z
         
-        UpperLipMid_X = 0.087832
-        UpperLipMid_Y = 0.216568
-        UpperLipMid_Z = 0.074157
+        name_downLip_ctrl_X = -0.146035
+        name_downLip_ctrl_Y = 0.361873
+        name_downLip_ctrl_Z = 0.018835
         
-        pm.move((float(dataarray[3]) - UpperLipMid_X) * strengthX, (float(dataarray[4]) - UpperLipMid_Y) * strengthY, (float(dataarray[5]) - UpperLipMid_Z) * strengthZ, 'name_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[3]) - UpperLipMid_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[4]) - UpperLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[5]) - UpperLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
+        pm.move((float(dataarray[3]) - name_downLip_ctrl_X) * strengthX, (float(dataarray[4]) - name_downLip_ctrl_Y) * strengthY, (float(dataarray[5]) - name_downLip_ctrl_Z) * strengthZ, 'name_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[3]) - name_downLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[4]) - name_downLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_downLip_ctrl', v=float(dataarray[5]) - name_downLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_downLip_ctrl (dataarray[6] ~ dataarray[8])
+        
+        global name_l_downLip_ctrl_X
+        global name_l_downLip_ctrl_Y
+        global name_l_downLip_ctrl_Z
+        
+        name_l_downLip_ctrl_X = -0.139958
+        name_l_downLip_ctrl_Y = 0.3657
+        name_l_downLip_ctrl_Z = -0.001345
+        
+        pm.move((float(dataarray[6]) - name_l_downLip_ctrl_X) * strengthX, (float(dataarray[7]) - name_l_downLip_ctrl_Y) * strengthY, (float(dataarray[8]) - name_l_downLip_ctrl_Z) * strengthZ, 'name_l_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[6]) - name_l_downLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[7]) - name_l_downLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[8]) - name_l_downLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_downLip_ctrl (dataarray[9] ~ dataarray[11])
+        
+        global name_r_downLip_ctrl_X
+        global name_r_downLip_ctrl_Y
+        global name_r_downLip_ctrl_Z
+        
+        name_r_downLip_ctrl_X = -0.140767
+        name_r_downLip_ctrl_Y = 0.365645
+        name_r_downLip_ctrl_Z = 0.036381
+        
+        pm.move((float(dataarray[9]) - name_r_downLip_ctrl_X) * strengthX, (float(dataarray[10]) - name_r_downLip_ctrl_Y) * strengthY, (float(dataarray[11]) - name_r_downLip_ctrl_Z) * strengthZ, 'name_r_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[9]) - name_r_downLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[10]) - name_r_downLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[11]) - name_r_downLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_up_cheek_ctrl (dataarray[12] ~ dataarray[14])
+        
+        global name_l_up_cheek_ctrl_X
+        global name_l_up_cheek_ctrl_Y
+        global name_l_up_cheek_ctrl_Z
+        
+        name_l_up_cheek_ctrl_X = -0.143026
+        name_l_up_cheek_ctrl_Y = 0.40419
+        name_l_up_cheek_ctrl_Z = -0.025822
+        
+        pm.move((float(dataarray[12]) - name_l_up_cheek_ctrl_X) * strengthX, (float(dataarray[13]) - name_l_up_cheek_ctrl_Y) * strengthY, (float(dataarray[14]) - name_l_up_cheek_ctrl_Z) * strengthZ, 'name_l_up_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_up_cheek_ctrl', v=float(dataarray[12]) - name_l_up_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_up_cheek_ctrl', v=float(dataarray[13]) - name_l_up_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_up_cheek_ctrl', v=float(dataarray[14]) - name_l_up_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_cheek_ctrl (dataarray[15] ~ dataarray[17])
+        
+        global name_l_cheek_ctrl_X
+        global name_l_cheek_ctrl_Y
+        global name_l_cheek_ctrl_Z
+        
+        name_l_cheek_ctrl_X = -0.121044
+        name_l_cheek_ctrl_Y = 0.387342
+        name_l_cheek_ctrl_Z = -0.03962
+        
+        pm.move((float(dataarray[15]) - name_l_cheek_ctrl_X) * strengthX, (float(dataarray[16]) - name_l_cheek_ctrl_Y) * strengthY, (float(dataarray[17]) - name_l_cheek_ctrl_Z) * strengthZ, 'name_l_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_cheek_ctrl', v=float(dataarray[15]) - name_l_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_cheek_ctrl', v=float(dataarray[16]) - name_l_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_cheek_ctrl', v=float(dataarray[17]) - name_l_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_Nose_ctrl (dataarray[18] ~ dataarray[20])
+        
+        global name_l_Nose_ctrl_X
+        global name_l_Nose_ctrl_Y
+        global name_l_Nose_ctrl_Z
+        
+        name_l_Nose_ctrl_X = -0.145003
+        name_l_Nose_ctrl_Y = 0.401333
+        name_l_Nose_ctrl_Z = 0.004767
+        
+        pm.move((float(dataarray[18]) - name_l_Nose_ctrl_X) * strengthX, (float(dataarray[19]) - name_l_Nose_ctrl_Y) * strengthY, (float(dataarray[20]) - name_l_Nose_ctrl_Z) * strengthZ, 'name_l_Nose_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_Nose_ctrl', v=float(dataarray[18]) - name_l_Nose_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_Nose_ctrl', v=float(dataarray[19]) - name_l_Nose_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_Nose_ctrl', v=float(dataarray[20]) - name_l_Nose_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_upCornerLip_ctrl (dataarray[21] ~ dataarray[23])
+        
+        global name_l_upCornerLip_ctrl_X
+        global name_l_upCornerLip_ctrl_Y
+        global name_l_upCornerLip_ctrl_Z
+        
+        name_l_upCornerLip_ctrl_X = -0.13379
+        name_l_upCornerLip_ctrl_Y = 0.377603
+        name_l_upCornerLip_ctrl_Z = -0.009102
+        
+        pm.move((float(dataarray[21]) - name_l_upCornerLip_ctrl_X) * strengthX, (float(dataarray[22]) - name_l_upCornerLip_ctrl_Y) * strengthY, (float(dataarray[23]) - name_l_upCornerLip_ctrl_Z) * strengthZ, 'name_l_upCornerLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_upCornerLip_ctrl', v=float(dataarray[21]) - name_l_upCornerLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_upCornerLip_ctrl', v=float(dataarray[22]) - name_l_upCornerLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_upCornerLip_ctrl', v=float(dataarray[23]) - name_l_upCornerLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_jaw_cheek_ctrl (dataarray[24] ~ dataarray[26])
+        
+        global name_l_jaw_cheek_ctrl_X
+        global name_l_jaw_cheek_ctrl_Y
+        global name_l_jaw_cheek_ctrl_Z
+        
+        name_l_jaw_cheek_ctrl_X = -0.112907
+        name_l_jaw_cheek_ctrl_Y = 0.400494
+        name_l_jaw_cheek_ctrl_Z = -0.050059
+        
+        pm.move((float(dataarray[24]) - name_l_jaw_cheek_ctrl_X) * strengthX, (float(dataarray[25]) - name_l_jaw_cheek_ctrl_Y) * strengthY, (float(dataarray[26]) - name_l_jaw_cheek_ctrl_Z) * strengthZ, 'name_l_jaw_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_jaw_cheek_ctrl', v=float(dataarray[24]) - name_l_jaw_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_jaw_cheek_ctrl', v=float(dataarray[25]) - name_l_jaw_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_jaw_cheek_ctrl', v=float(dataarray[26]) - name_l_jaw_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_nose_cheek_ctrl (dataarray[27] ~ dataarray[29])
+        
+        global name_l_nose_cheek_ctrl_X
+        global name_l_nose_cheek_ctrl_Y
+        global name_l_nose_cheek_ctrl_Z
+        
+        name_l_nose_cheek_ctrl_X = -0.146252
+        name_l_nose_cheek_ctrl_Y = 0.424185
+        name_l_nose_cheek_ctrl_Z = -0.000506
+        
+        pm.move((float(dataarray[27]) - name_l_nose_cheek_ctrl_X) * strengthX, (float(dataarray[28]) - name_l_nose_cheek_ctrl_Y) * strengthY, (float(dataarray[29]) - name_l_nose_cheek_ctrl_Z) * strengthZ, 'name_l_nose_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_nose_cheek_ctrl', v=float(dataarray[27]) - name_l_nose_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_nose_cheek_ctrl', v=float(dataarray[28]) - name_l_nose_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_nose_cheek_ctrl', v=float(dataarray[29]) - name_l_nose_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_up_cheek_ctrl (dataarray[30] ~ dataarray[32])
+        
+        global name_r_up_cheek_ctrl_X
+        global name_r_up_cheek_ctrl_Y
+        global name_r_up_cheek_ctrl_Z
+        
+        name_r_up_cheek_ctrl_X = -0.13576
+        name_r_up_cheek_ctrl_Y = 0.399635
+        name_r_up_cheek_ctrl_Z = 0.065753
+        
+        pm.move((float(dataarray[30]) - name_r_up_cheek_ctrl_X) * strengthX, (float(dataarray[31]) - name_r_up_cheek_ctrl_Y) * strengthY, (float(dataarray[32]) - name_r_up_cheek_ctrl_Z) * strengthZ, 'name_r_up_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_up_cheek_ctrl', v=float(dataarray[30]) - name_r_up_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_up_cheek_ctrl', v=float(dataarray[31]) - name_r_up_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_up_cheek_ctrl', v=float(dataarray[32]) - name_r_up_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_cheek_ctrl (dataarray[33] ~ dataarray[35])
+        
+        global name_r_cheek_ctrl_X
+        global name_r_cheek_ctrl_Y
+        global name_r_cheek_ctrl_Z
+        
+        name_r_cheek_ctrl_X = -0.119672
+        name_r_cheek_ctrl_Y = 0.387673
+        name_r_cheek_ctrl_Z = 0.077085
+        
+        pm.move((float(dataarray[33]) - name_r_cheek_ctrl_X) * strengthX, (float(dataarray[34]) - name_r_cheek_ctrl_Y) * strengthY, (float(dataarray[35]) - name_r_cheek_ctrl_Z) * strengthZ, 'name_r_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_cheek_ctrl', v=float(dataarray[33]) - name_r_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_cheek_ctrl', v=float(dataarray[34]) - name_r_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_cheek_ctrl', v=float(dataarray[35]) - name_r_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_Nose_ctrl (dataarray[36] ~ dataarray[38])
+        
+        global name_r_Nose_ctrl_X
+        global name_r_Nose_ctrl_Y
+        global name_r_Nose_ctrl_Z
+        
+        name_r_Nose_ctrl_X = -0.143902
+        name_r_Nose_ctrl_Y = 0.400701
+        name_r_Nose_ctrl_Z = 0.036468
+        
+        pm.move((float(dataarray[36]) - name_r_Nose_ctrl_X) * strengthX, (float(dataarray[37]) - name_r_Nose_ctrl_Y) * strengthY, (float(dataarray[38]) - name_r_Nose_ctrl_Z) * strengthZ, 'name_r_Nose_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_Nose_ctrl', v=float(dataarray[36]) - name_r_Nose_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_Nose_ctrl', v=float(dataarray[37]) - name_r_Nose_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_Nose_ctrl', v=float(dataarray[38]) - name_r_Nose_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_Lip_ctrl (dataarray[39] ~ dataarray[41])
+        
+        global name_r_Lip_ctrl_X
+        global name_r_Lip_ctrl_Y
+        global name_r_Lip_ctrl_Z
+        
+        name_r_Lip_ctrl_X = -0.134883
+        name_r_Lip_ctrl_Y = 0.377068
+        name_r_Lip_ctrl_Z = 0.047297
+        
+        pm.move((float(dataarray[39]) - name_r_Lip_ctrl_X) * strengthX, (float(dataarray[40]) - name_r_Lip_ctrl_Y) * strengthY, (float(dataarray[41]) - name_r_Lip_ctrl_Z) * strengthZ, 'name_r_Lip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_Lip_ctrl', v=float(dataarray[39]) - name_r_Lip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_Lip_ctrl', v=float(dataarray[40]) - name_r_Lip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_Lip_ctrl', v=float(dataarray[41]) - name_r_Lip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_jaw_cheek_ctrl (dataarray[42] ~ dataarray[44])
+        
+        global name_r_jaw_cheek_ctrl_X
+        global name_r_jaw_cheek_ctrl_Y
+        global name_r_jaw_cheek_ctrl_Z
+        
+        name_r_jaw_cheek_ctrl_X = -0.109223
+        name_r_jaw_cheek_ctrl_Y = 0.404081
+        name_r_jaw_cheek_ctrl_Z = 0.089479
+        
+        pm.move((float(dataarray[42]) - name_r_jaw_cheek_ctrl_X) * strengthX, (float(dataarray[43]) - name_r_jaw_cheek_ctrl_Y) * strengthY, (float(dataarray[44]) - name_r_jaw_cheek_ctrl_Z) * strengthZ, 'name_r_jaw_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_jaw_cheek_ctrl', v=float(dataarray[42]) - name_r_jaw_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_jaw_cheek_ctrl', v=float(dataarray[43]) - name_r_jaw_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_jaw_cheek_ctrl', v=float(dataarray[44]) - name_r_jaw_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_nose_cheek_ctrl (dataarray[45] ~ dataarray[47])
+        
+        global name_r_nose_cheek_ctrl_X
+        global name_r_nose_cheek_ctrl_Y
+        global name_r_nose_cheek_ctrl_Z
+        
+        name_r_nose_cheek_ctrl_X = -0.142525
+        name_r_nose_cheek_ctrl_Y = 0.421987
+        name_r_nose_cheek_ctrl_Z = 0.050257
+        
+        pm.move((float(dataarray[45]) - name_r_nose_cheek_ctrl_X) * strengthX, (float(dataarray[46]) - name_r_nose_cheek_ctrl_Y) * strengthY, (float(dataarray[47]) - name_r_nose_cheek_ctrl_Z) * strengthZ, 'name_r_nose_cheek_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_nose_cheek_ctrl', v=float(dataarray[45]) - name_r_nose_cheek_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_nose_cheek_ctrl', v=float(dataarray[46]) - name_r_nose_cheek_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_nose_cheek_ctrl', v=float(dataarray[47]) - name_r_nose_cheek_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_down_eye_border_ctrl (dataarray[48] ~ dataarray[50])
+        
+        global name_l_down_eye_border_ctrl_X
+        global name_l_down_eye_border_ctrl_Y
+        global name_l_down_eye_border_ctrl_Z
+        
+        name_l_down_eye_border_ctrl_X = -0.143587
+        name_l_down_eye_border_ctrl_Y = 0.433989
+        name_l_down_eye_border_ctrl_Z = -0.019365
+        
+        pm.move((float(dataarray[48]) - name_l_down_eye_border_ctrl_X) * strengthX, (float(dataarray[49]) - name_l_down_eye_border_ctrl_Y) * strengthY, (float(dataarray[50]) - name_l_down_eye_border_ctrl_Z) * strengthZ, 'name_l_down_eye_border_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_down_eye_border_ctrl', v=float(dataarray[48]) - name_l_down_eye_border_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_down_eye_border_ctrl', v=float(dataarray[49]) - name_l_down_eye_border_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_down_eye_border_ctrl', v=float(dataarray[50]) - name_l_down_eye_border_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_down_eye_border_ctrl (dataarray[51] ~ dataarray[53])
+        
+        global name_r_down_eye_border_ctrl_X
+        global name_r_down_eye_border_ctrl_Y
+        global name_r_down_eye_border_ctrl_Z
+        
+        name_r_down_eye_border_ctrl_X = -0.139288
+        name_r_down_eye_border_ctrl_Y = 0.434798
+        name_r_down_eye_border_ctrl_Z = 0.058149
+        
+        pm.move((float(dataarray[51]) - name_r_down_eye_border_ctrl_X) * strengthX, (float(dataarray[52]) - name_r_down_eye_border_ctrl_Y) * strengthY, (float(dataarray[53]) - name_r_down_eye_border_ctrl_Z) * strengthZ, 'name_r_down_eye_border_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_down_eye_border_ctrl', v=float(dataarray[51]) - name_r_down_eye_border_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_down_eye_border_ctrl', v=float(dataarray[52]) - name_r_down_eye_border_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_down_eye_border_ctrl', v=float(dataarray[53]) - name_r_down_eye_border_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_upLip_ctrl (dataarray[54] ~ dataarray[56])
+        
+        global name_upLip_ctrl_X
+        global name_upLip_ctrl_Y
+        global name_upLip_ctrl_Z
+        
+        name_upLip_ctrl_X = -0.152267
+        name_upLip_ctrl_Y = 0.390458
+        name_upLip_ctrl_Z = 0.019759
+        
+        pm.move((float(dataarray[54]) - name_upLip_ctrl_X) * strengthX, (float(dataarray[55]) - name_upLip_ctrl_Y) * strengthY, (float(dataarray[56]) - name_upLip_ctrl_Z) * strengthZ, 'name_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[54]) - name_upLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[55]) - name_upLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_upLip_ctrl', v=float(dataarray[56]) - name_upLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_l_upLip_ctrl (dataarray[57] ~ dataarray[59])
+        
+        global name_l_upLip_ctrl_X
+        global name_l_upLip_ctrl_Y
+        global name_l_upLip_ctrl_Z
+        
+        name_l_upLip_ctrl_X = -0.147181
+        name_l_upLip_ctrl_Y = 0.387083
+        name_l_upLip_ctrl_Z = 0.001216
+        
+        pm.move((float(dataarray[57]) - name_l_upLip_ctrl_X) * strengthX, (float(dataarray[58]) - name_l_upLip_ctrl_Y) * strengthY, (float(dataarray[59]) - name_l_upLip_ctrl_Z) * strengthZ, 'name_l_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[57]) - name_l_upLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[58]) - name_l_upLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[59]) - name_l_upLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
+        
+        # name_r_upLip_ctrl (dataarray[60] ~ dataarray[62])
+        
+        global name_r_upLip_ctrl_X
+        global name_r_upLip_ctrl_Y
+        global name_r_upLip_ctrl_Z
+        
+        name_r_upLip_ctrl_X = -0.146955
+        name_r_upLip_ctrl_Y = 0.385898
+        name_r_upLip_ctrl_Z = 0.038531
+        
+        pm.move((float(dataarray[60]) - name_r_upLip_ctrl_X) * strengthX, (float(dataarray[61]) - name_r_upLip_ctrl_Y) * strengthY, (float(dataarray[62]) - name_r_upLip_ctrl_Z) * strengthZ, 'name_r_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
+        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[60]) - name_r_upLip_ctrl_X, attribute='TranslateX', t=[numcurrenttime])
+        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[61]) - name_r_upLip_ctrl_Y, attribute='TranslateY', t=[numcurrenttime])
+        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[62]) - name_r_upLip_ctrl_Z, attribute='TranslateZ', t=[numcurrenttime])
         
         
-                # LowerLipMid_CTRL (dataarray[0] ~ dataarray[2])
-            
-        global LowerLipMid_X
-        global LowerLipMid_Y
-        global LowerLipMid_Z
-        
-        LowerLipMid_X = 0.089617
-        LowerLipMid_Y = 0.177767
-        LowerLipMid_Z = 0.075221
-        
-        print((float(dataarray[2])*(-1)) + LowerLipMid_Y)
-        
-        pm.move(0, (float(dataarray[1]) - LowerLipMid_Y) * strengthY, 0, 'name_down_teeth_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-            #if recnow ==1
-             # numcurrenttime 증가시키는 함수는 어딨지?
-        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[0]) - LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[1]) - LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_down_teeth_ctrl', v=float(dataarray[2]) - LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
-        
-        
-        
-        # UpperLipMid_CTRL (dataarray[3] ~ dataarray[5])
-            
-        global UpperLipMid_X
-        global UpperLipMid_Y
-        global UpperLipMid_Z
-        
-        UpperLipMid_X = 0.087832
-        UpperLipMid_Y = 0.216568
-        UpperLipMid_Z = 0.074157
-        
-        pm.move(0, (float(dataarray[4]) - UpperLipMid_Y) * strengthY, 0, 'name_up_teeth_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[3]) - UpperLipMid_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[4]) - UpperLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_up_teeth_ctrl', v=float(dataarray[5]) - UpperLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
-        
-        # L_LowerLipMid_CTRL (dataarray[6] ~ dataarray[8])
-        
-        global L_LowerLipMid_X
-        global L_LowerLipMid_Y
-        global L_LowerLipMid_Z
-        
-        L_LowerLipMid_X = 0.097783
-        L_LowerLipMid_Y = 0.184848
-        L_LowerLipMid_Z = 0.106411
-        
-        pm.move((float(dataarray[6]) - L_LowerLipMid_X) * strengthX, (float(dataarray[7]) - L_LowerLipMid_Y) * strengthY, (float(dataarray[8]) - L_LowerLipMid_Z) * strengthZ, 'name_l_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[6]) - L_LowerLipMid_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[7]) - L_LowerLipMid_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_l_downLip_ctrl', v=float(dataarray[8]) - L_LowerLipMid_Z, attribute='TranslateZ', t=[numcurrenttime])
-
-        # L_UpperLipMid_CTRL (dataarray[9] ~ dataarray[11])
-            
-        global L_UpperLipMid_CTRL_X
-        global L_UpperLipMid_CTRL_Y
-        global L_UpperLipMid_CTRL_Z
-        
-        L_UpperLipMid_CTRL_X = 0.092385
-        L_UpperLipMid_CTRL_Y = 0.2153
-        L_UpperLipMid_CTRL_Z = 0.095308
-        
-        pm.move((float(dataarray[9]) - L_UpperLipMid_CTRL_X) * strengthX, (float(dataarray[10]) - L_UpperLipMid_CTRL_Y) * strengthY, (float(dataarray[11]) - L_UpperLipMid_CTRL_Z) * strengthZ, 'name_l_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[9]) - L_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[10]) - L_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_l_upLip_ctrl', v=float(dataarray[11]) - L_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
-        
-        # R_LowerLipMid_CTRL (dataarray[12] ~ dataarray[14])
-            
-        global R_LowerLipMid_CTRL_X
-        global R_LowerLipMid_CTRL_Y
-        global R_LowerLipMid_CTRL_Z
-        
-        R_LowerLipMid_CTRL_X = 0.101421
-        R_LowerLipMid_CTRL_Y = 0.185972
-        R_LowerLipMid_CTRL_Z = 0.043421
-         
-        pm.move((float(dataarray[12]) - R_LowerLipMid_CTRL_X) * strengthX, (float(dataarray[13]) - R_LowerLipMid_CTRL_Y) * strengthY, (float(dataarray[14]) - R_LowerLipMid_CTRL_Z) * strengthZ, 'name_r_downLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[12]) - R_LowerLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[13]) - R_LowerLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_r_downLip_ctrl', v=float(dataarray[14]) - R_LowerLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
-        
-        # R_UpperLipMid_CTRL (dataarray[15] ~ dataarray[17])
-        
-        global R_UpperLipMid_CTRL_X
-        global R_UpperLipMid_CTRL_Y
-        global R_UpperLipMid_CTRL_Z
-        
-        R_UpperLipMid_CTRL_X = 0.094769
-        R_UpperLipMid_CTRL_Y = 0.214611
-        R_UpperLipMid_CTRL_Z = 0.053779
-        
-        pm.move((float(dataarray[15]) - R_UpperLipMid_CTRL_X) * strengthX, (float(dataarray[16]) - R_UpperLipMid_CTRL_Y) * strengthY, (float(dataarray[17]) - R_UpperLipMid_CTRL_Z) * strengthZ, 'name_r_upLip_ctrl', relative=True, objectSpace=True, worldSpaceDistance=True )
-        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[15]) - R_UpperLipMid_CTRL_X, attribute='TranslateX', t=[numcurrenttime])
-        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[16]) - R_UpperLipMid_CTRL_Y, attribute='TranslateY', t=[numcurrenttime])
-        pm.setKeyframe('name_r_upLip_ctrl', v=float(dataarray[17]) - R_UpperLipMid_CTRL_Z, attribute='TranslateZ', t=[numcurrenttime])
 
 def portData(arg):
     """
