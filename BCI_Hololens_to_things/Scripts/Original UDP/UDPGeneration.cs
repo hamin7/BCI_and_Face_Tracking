@@ -30,27 +30,27 @@ public class UDPGeneration : MonoBehaviour {
 
                 if (MarkerControl.SelectedMarker == "Robot")
                 {
-                    DataString = "1";
+                    DataString = "HanYang#QR#1";
 
                 }
                 else if (MarkerControl.SelectedMarker == "Hum")
                 {
-                    DataString = "3";
+                    DataString = "HanYang#QR#3";
 
                 }
                 else if (MarkerControl.SelectedMarker == "Air")
                 {
-                    DataString = "2";
+                    DataString = "HanYang#QR#2";
 
                 }
                 else if (MarkerControl.SelectedMarker == "AC")
                 {
-                    DataString = "4";
+                    DataString = "HanYang#QR#4";
 
                 }
                 else if (MarkerControl.SelectedMarker == "Bulb")
                 {
-                    DataString = "5";
+                    DataString = "HanYang#QR#5";
 
                 }
                 /*

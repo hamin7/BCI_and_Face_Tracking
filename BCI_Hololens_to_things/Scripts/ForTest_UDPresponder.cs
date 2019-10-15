@@ -147,7 +147,7 @@ public class ForTest_UDPresponder : MonoBehaviour {
 
         //if (dataString == '4'.ToString())
         /*HM 중요- 돌아가기 UDP값 미들웨어에서 추가되면   ||(or) 더해주기  */
-        if (dataString == "MiddleWare#HanYang#RVC#Home" || dataString == "MiddleWare#HanYang#AirCleaner#Home" )
+        if (dataString == "MiddleWare#HanYang#RVC#Home" || dataString == "MiddleWare#HanYang#AirCleaner#Home" || dataString == "MiddleWare#HanYang#AirConditioner#Home" || dataString == "MiddleWare#HanYang#Bulb#Home")
         {
             //기기선택단계로 돌아가도록 씬 다시 로드
             isQRFirstStage = false;
@@ -211,7 +211,7 @@ public class ForTest_UDPresponder : MonoBehaviour {
                     StimuliSet.SetActive(true);
                 break;
 
-                case "MiddleWare#HanYang#SelectDevice#AC":
+                case "MiddleWare#HanYang#SelectDevice#AirConditioner":
                     Spots.SetActive(false);
                     StimuliSet.SetActive(true);
                 break;
@@ -271,7 +271,7 @@ public class ForTest_UDPresponder : MonoBehaviour {
                 StimuliSet.SetActive(true);
                 break;
 
-            case "MiddleWare#HanYang#SelectDevice#AC":
+            case "MiddleWare#HanYang#SelectDevice#AirConditioner":
                 StimuliSet.transform.position = ApplianceStimuli.transform.position;
                 ApplianceStimuli.SetActive(false);
                 StimuliSet.SetActive(true);
